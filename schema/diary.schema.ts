@@ -1,6 +1,6 @@
 const moment = require('moment');
 
-module.exports = function (sequelize: any, DataTypes: any) {
+export default (sequelize: any, DataTypes: any) => {
   return sequelize.define('article', {
     // 文章ID
     id: {

@@ -1,12 +1,13 @@
 // 引入刚刚在第五点建立连接mysql数据库的db.js文件
 const db = require('../config/mysql');
 // 引入Sequelize对象
+import { sequelize } from '../config/mysql';
 // 引入上一步的文章数据表模型文件
-const Article = Sequelize.import('../schema/article');
+const Article = sequelize.import('../schema/diary.schema.ts');
 // 自动创建表
 Article.sync({ force: false });
 
-class ArticleModel {
+export class ArticleModel {
   /**
    * 创建文章模型
    * @param data

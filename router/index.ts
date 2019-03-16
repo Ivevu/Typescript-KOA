@@ -14,7 +14,7 @@ router.post('/article', ArticleController.create);
 router.get('/article/:id', ArticleController.detail);
 
 
-router.get('/', async (ctx: any) => {
+router.get('/home', async (ctx: any) => {
   ctx.body = "首页";
 })
 

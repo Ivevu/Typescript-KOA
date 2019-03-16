@@ -1,17 +1,9 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('liww_node_blog', 'root', 'S@lww520.', {
+export const sequelize = new Sequelize('liww_koa_blog', 'root', 'S@lww520.', {
     host: 'localhost',
     dialect: 'mysql',
     operatorsAliases: false,
-    dialectOptions: {
-        // 字符集
-        charset: "utf8mb4",
-        collate: "utf8mb4_unicode_ci",
-        supportBigNumbers: true,
-        bigNumberStrings: true
-    },
-
     pool: {
         max: 5,
         min: 0,
@@ -21,6 +13,3 @@ const sequelize = new Sequelize('liww_node_blog', 'root', 'S@lww520.', {
     timezone: '+08:00' //东八时区
 });
 
-module.exports = {
-    sequelize
-}

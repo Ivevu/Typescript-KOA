@@ -1,4 +1,6 @@
 import logger from '../util/log';
+import  { ArticleModel } from '../module/diary.model';
+
 class articleController {
   /**
    * 创建文章
@@ -8,6 +10,11 @@ class articleController {
   static async create(ctx: any) {
     // 接收客服端
     let req = ctx.request.body;
+    console.log(req.title);
+    console.log(req.author);
+    console.log(req.content);
+    console.log(req.category);
+
 
     if (req.title // 文章标题
       && req.author // 文章作者
@@ -15,6 +22,8 @@ class articleController {
       && req.category // 文章分类
     ) {
       try {
+        console.log(ArticleModel);
+
         // 创建文章模型
         const ret = await ArticleModel.createArticle(req);
         // 把刚刚新建的文章ID查询文章详情，且返回新创建的文章信息
