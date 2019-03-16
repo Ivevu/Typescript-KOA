@@ -19,4 +19,4 @@ router.get('/', async (ctx: any) => {
 })
 
 
-module.exports = router
+export default router;

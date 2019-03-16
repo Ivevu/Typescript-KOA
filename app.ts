@@ -1,6 +1,7 @@
 
 import * as Koa from 'koa';
-const router = require('./router/index');
+import router from './router/index';
+
 const app = new Koa();
 
 // const path = require('path');
@@ -14,7 +15,6 @@ app.use(bodyParser());
 //   // ctx.body = ctx.request.body;
 //   ctx.body = 'ctx.request.query'
 // });
-
 
 app
   .use(router.routes())

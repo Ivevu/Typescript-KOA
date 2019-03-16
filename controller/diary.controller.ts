@@ -1,3 +1,4 @@
+import logger from '../util/log';
 class articleController {
   /**
    * 创建文章
@@ -7,7 +8,7 @@ class articleController {
   static async create(ctx: any) {
     // 接收客服端
     let req = ctx.request.body;
-    
+
     if (req.title // 文章标题
       && req.author // 文章作者
       && req.content // 文章内容
@@ -34,8 +35,10 @@ class articleController {
         }
       }
     } else {
-    console.log(ctx.request.body);
-    ctx.response.status = 416;
+      const start = new Date()
+      logger.resLogger(ctx, start)
+
+      ctx.response.status = 416;
       ctx.body = {
         code: 200,
         msg: '参数不齐全',
@@ -52,7 +55,7 @@ class articleController {
   static async detail(ctx: any) {
     let id = ctx.params.id;
     console.log(1);
-    
+
     if (id) {
       try {
         // 查询文章详情模型
