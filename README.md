@@ -3,6 +3,9 @@
 ### catalog
 
 ```
+├── controller       ---  控制器
+├── schema       ---  数据表模型
+├── module       ---  模型
 ├── webapp       ---  前端项目
 
 ```

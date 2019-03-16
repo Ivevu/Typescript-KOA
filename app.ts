@@ -1,18 +1,23 @@
 
 import * as Koa from 'koa';
-import * as Router from "koa-router";
-const path = require('path')
-const server = require('koa-static')
-const app = new Koa()
-const router = new Router();
+const router = require('./router/index');
+const app = new Koa();
+
+// const path = require('path');
+// const server = require('koa-static');
 var bodyParser = require('koa-bodyparser');
-const staticPath = './webapp'
+// const staticPath = './webapp';
+
 app.use(bodyParser());
-app.use(server(path.join(__dirname, staticPath)))
+// app.use(server(path.join(__dirname, staticPath)));
 // app.use(async ctx => {
 //   // ctx.body = ctx.request.body;
-//   ctx.body = ctx.request.query
+//   ctx.body = 'ctx.request.query'
 // });
 
-app.use(router.routes());
+
+app
+  .use(router.routes())
+  .use(router.allowedMethods());
+
 app.listen(4399);
